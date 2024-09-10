@@ -10,7 +10,7 @@
     };
 </script>
 <div class="mb-4">
-<div class="flex  items-center mb-4 hover:text-white" >
+<div class="flex justify-center items-center mb-4 hover:text-white" >
     <!-- Скрытый стандартный чекбокс -->
     <div class="relative">
         <input
@@ -33,11 +33,11 @@
 
     </div>
     <!-- Лейбл с отступом -->
-    <label class="ml-2 text-gray-600 cursor-pointer " >I accept <a href="#" class="text-gray-400 hover:text-white underline">{label}</a></label>
+    <label class="ml-2 text-gray-600 cursor-pointer text-sm" >I accept <a href="#" class="text-gray-400 hover:text-white underline">{label}</a></label>
 
 </div>
     {#if error}
-        <p class="text-red-500 text-xs italic mt-2">{error}</p>
+        <p class="text-red-500 text-xs italic mt-1">{error}</p>
     {/if}
 </div>
 

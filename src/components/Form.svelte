@@ -66,8 +66,8 @@
     window.addEventListener('click', handleClickOutside);
 </script>
 
-<form on:submit|preventDefault={submitForm} class="max-w-sm mx-auto p-11  rounded-3xl   bg-[#171929]">
-    <label  class="block text-lg text-white">For business enquiries please use the form below</label>/
+<form on:submit|preventDefault={submitForm} class="max-w-xs md:max-w-sm mx-auto p-6 md:p-10 rounded-[27px] bg-[#171929]">
+    <label  class="block text-lg text-white mb-2">For business enquiries please use the form below</label>
     <div  class="block  text-gray-700">*Required</div>
     <InputField
             label="Name"
