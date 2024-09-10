@@ -18,6 +18,9 @@ export default {
       backgroundImage: {
         'galaxy-image': "url('/galaxy.webp')",
       },
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+      },
       colors: {
         primary:{
               500: '#404463',

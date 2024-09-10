@@ -107,7 +107,7 @@
     <Checkbox bind:checked={agree}    error={errors.agree}/>
 
 
-    <SubmitButton color="primary" />
+    <SubmitButton color="primary-700" />
 </form>
 
 <!-- Уведомление -->
@@ -119,8 +119,3 @@
 {/if}
 
 
-<style>
-    :global(body) {
-        @apply bg-gray-100 font-sans;
-    }
-</style>
