@@ -19,6 +19,9 @@
     let message: string = '';
     let agree: boolean = false;
 
+    let showNotification = false; // Видимость уведомления
+    let notificationTimer: NodeJS.Timeout | null = null;
+
     let errors: Errors = {};
 
     const validate = (): boolean => {
@@ -33,10 +36,34 @@
 
     const submitForm = () => {
         if (validate()) {
-            alert('Form submitted successfully!');
+            showNotification = true;
+
+            // Устанавливаем таймер для скрытия уведомления
+            notificationTimer = setTimeout(() => {
+                showNotification = false;
+            }, 4000); // Уведомление исчезнет через 4 секунды
             // Здесь будет логика отправки данных
         }
     };
+
+
+    // Закрытие уведомления вручную
+    const closeNotification = () => {
+        showNotification = false;
+        if (notificationTimer) {
+            clearTimeout(notificationTimer);
+        }
+    };
+
+    const handleClickOutside = (event: MouseEvent) => {
+        const notification = document.querySelector('.notification');
+        if (notification && !notification.contains(event.target as Node)) {
+            closeNotification();
+        }
+    };
+
+    // Добавление обработчика для клика вне уведомления
+    window.addEventListener('click', handleClickOutside);
 </script>
 
 <form on:submit|preventDefault={submitForm} class="max-w-sm mx-auto p-11  rounded-3xl   bg-[#171929]">
@@ -82,6 +109,15 @@
 
     <SubmitButton color="primary" />
 </form>
+
+<!-- Уведомление -->
+{#if showNotification}
+    <div class="notification fixed top-5 right-5 bg-green-500 text-white p-4 rounded-lg shadow-lg transition-opacity duration-300 ease-in-out">
+        Data has been successfully submitted!
+        <button class="ml-4 text-white" on:click={closeNotification}>✖</button>
+    </div>
+{/if}
+
 
 <style>
     :global(body) {
